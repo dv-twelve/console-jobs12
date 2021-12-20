@@ -1,0 +1,50 @@
+using System;
+
+namespace ConsoleApp12_с_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            while (true)
+            {
+                try
+                {
+                    Console.Write("Введите длины сторон треугольника - (1 2 3): ");
+                    Triangle triangle = (Triangle)Console.ReadLine();
+
+                    Console.Write("Введите индекс стороны треугольника: ");
+
+                    Console.WriteLine($"Длинна { triangle[int.Parse(Console.ReadLine())]}");
+
+                    Console.WriteLine($"Сторона треугольника:{triangle.ToString()}");
+
+                    Console.WriteLine("Треугольник существует:");
+                    Console.WriteLine(triangle.TriangleIs);
+                    Console.WriteLine(triangle ? "yes" : "no");
+
+                    Console.WriteLine("Операция ++ для треугольника");
+                    triangle++;
+                    Console.WriteLine(triangle.ToString());
+
+                    Console.WriteLine("Операция -- для треугольника");
+                    triangle--;
+                    Console.WriteLine(triangle.ToString());
+
+                    Console.WriteLine("Операция * 3 для треугольника");
+                    triangle *= 3;
+                    Console.WriteLine((string)triangle);
+
+                    break;
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Ошибка ввода\n");
+                }
+                catch(IndexOutOfRangeException)
+                { 
+                }
+            }
+        }
+    }
+}
